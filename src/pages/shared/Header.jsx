@@ -44,7 +44,7 @@ const Header = () => {
               <Link>
                 <FaUserCircle className="w-9 h-9"></FaUserCircle>{" "}
               </Link>
-              <button className="btn">Login</button>
+              <Link to='/login'><button className="btn">Login</button></Link>
               <button className="btn">Log Out</button>
             </li>
           </ul>
