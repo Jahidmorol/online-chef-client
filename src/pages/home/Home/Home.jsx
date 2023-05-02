@@ -1,13 +1,19 @@
 import React from 'react';
+import { useLoaderData } from 'react-router-dom';
 import shef from '../../../assets/shef.png'
+import Chefs from '../chefs/Chefs';
 
 const Home = () => {
+    const chefs = useLoaderData();
     return (
-        <div className='bg-yellow-600 md:flex items-center justify-between h-screen'>
+        <div>
+            <div className='bg-yellow-600 md:flex items-center justify-between h-screen'>
             <img src={shef} className="w-100 md:w-6/12" alt="" />
             <div>
                 <h2 className="text-6xl"> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis, modi!</h2>
             </div>
+        </div>
+        <Chefs chefs={chefs}> </Chefs>
         </div>
     );
 };

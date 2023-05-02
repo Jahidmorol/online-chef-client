@@ -1,23 +1,18 @@
-// import React, { useState } from 'react';
-// import { useEffect } from 'react';
-// import Chef from './Chef';
+import React from "react";
+import Chef from "./Chef";
 
-// const Chefs = () => {
+const Chefs = ({ chefs }) => {
+  console.log(chefs);
+  return (
+    <div className="my-container">
+      <h2>its a chefs component</h2>
+      <div className="grid gap-1 mb-8 lg:grid-cols-3 sm:grid-cols-2">
+        {chefs.map((chef) => (
+          <Chef key={chef.id} chef={chef}></Chef>
+        ))}
+      </div>
+    </div>
+  );
+};
 
-//     const [datas, setDatas] = useState({});
-//     // console.log(data);
-
-//     useEffect(() => {
-//         fetch('/data.json')
-//         .then(res => res.json())
-//         .then(data => setDatas(data))
-//     },[])
-//     return (
-//         <div>
-//             <h2 text="5xl"></h2>
-//             {datas.map(data => <Chef chef={data}></Chef>)}
-//         </div>
-//     );
-// };
-
-// export default Chefs;
+export default Chefs;
