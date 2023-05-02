@@ -1,11 +1,13 @@
 import React from "react";
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../layouts/Main";
+import ViewrecipeLayout from "../layouts/ViewrecipeLayout";
 import Blog from "../pages/blog/Blog";
 import Chefs from "../pages/home/chefs/Chefs";
 import Home from "../pages/home/Home/Home";
 import Login from "../pages/login/Login";
 import Register from "../pages/login/Register";
+import Viewrecipes from "../pages/viewrecipes/Viewrecipes";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +33,17 @@ const router = createBrowserRouter([
       },
     ],
   },
+  {
+    path: 'viewrecipes',
+    element: <ViewrecipeLayout></ViewrecipeLayout>,
+    children: [
+      {
+        path: ':id',
+        element: <Viewrecipes></Viewrecipes>,
+        loader: ({params}) => fetch(`http://localhost:5000/${params.id}`),
+      }
+    ]
+  }
 ]);
 
 export default router;
