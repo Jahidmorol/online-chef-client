@@ -7,7 +7,7 @@ import { AuthContext } from "../../provider/AuthProvider";
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-  const {signIn, signInWithGoogle} = useContext(AuthContext)
+  const {signIn, signInWithGoogle, singInWithGithub} = useContext(AuthContext)
 
   const handleShowPassword = () => {
     setShowPassword(!showPassword);
@@ -24,8 +24,17 @@ const Login = () => {
       console.error(errorMessage)
     })
   }
+  
   const handleGithub = () => {
-
+    singInWithGithub()
+    .then(result => {
+      const loggedUser = result.user;
+      console.log(loggedUser);
+    })
+    .catch(error => {
+      const errorMessage = error.message;
+      console.error(errorMessage)
+    }) 
   }
 
   const handleSubmit = (event) => {
