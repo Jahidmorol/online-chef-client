@@ -8,6 +8,7 @@ import Home from "../pages/home/Home/Home";
 import Login from "../pages/login/Login";
 import Register from "../pages/login/Register";
 import Viewrecipes from "../pages/viewrecipes/Viewrecipes";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -39,7 +40,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: ':id',
-        element: <Viewrecipes></Viewrecipes>,
+        element: <PrivateRoute><Viewrecipes></Viewrecipes></PrivateRoute>,
         loader: ({params}) => fetch(`http://localhost:5000/${params.id}`),
       }
     ]

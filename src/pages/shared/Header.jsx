@@ -1,9 +1,20 @@
 import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { FaBars, FaRegTimesCircle, FaUserCircle } from "react-icons/fa";
+import { useContext } from "react";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { user,logOut } = useContext(AuthContext);
+  console.log(user);
+
+  const handleLogout = () => {
+    logOut()
+    .then()
+    .catch(e => console.error(e))
+  }
+
   return (
     <div className="bg-gray-100">
       <div className=" px-4  py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
@@ -35,17 +46,25 @@ const Header = () => {
               </NavLink>
             </li>
             <li className="flex items-center gap-3">
-              <NavLink
-                to="/login"
+              <div
                 className={({ isActive }) => (isActive ? "active" : "default")}
               >
-                Profile
-              </NavLink>
-              <Link>
-                <FaUserCircle className="w-9 h-9"></FaUserCircle>{" "}
-              </Link>
-              <Link to='/login'><button className="btn">Login</button></Link>
-              <button className="btn">Log Out</button>
+                {
+                  user ? <p className="font-semibold">{user.displayName}</p> : <p>Profile</p>
+                }
+              </div>
+              <div>
+                {
+                  user ? <img className="w-10 h-10 rounded-full" src={user.photoURL} /> : <FaUserCircle className="w-9 h-9"></FaUserCircle>
+                }
+              </div>
+              {user ? (
+                <button onClick={handleLogout} className="btn">Log Out</button>
+              ) : (
+                <Link to="/login">
+                  <button className="btn">Login</button>
+                </Link>
+              )}
             </li>
           </ul>
 

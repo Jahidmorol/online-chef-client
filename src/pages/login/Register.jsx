@@ -1,23 +1,47 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../provider/AuthProvider';
 
 const Register = () => {
     const [showPassword, setShowPassword] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
+    // const [aUser, setAuser] = useState(null);
+    const {createUser, updateUser} = useContext(AuthContext)
+    const {user} = useContext(AuthContext)
   
 
     const handleShowPassword = () => {
       setShowPassword(!showPassword);
     };
-  
+    
+    
+
+
     const handleSubmit = (event) => {
       event.preventDefault();
   
       const form = event.target;
       const email = form.email.value;
       const password = form.password.value;
-      console.log(email, password);
-  
+      const name = form.name.value;
+      const picture = form.picture.value;
+
+      updateUser(name, picture)
+      .then()
+      .catch(error => console.error(error))
+
+      console.log(email, password, name, picture);
+      createUser(email, password)
+      .then((result) => {
+        const createUser = result.user;
+        console.log(createUser);
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        console.error(errorMessage);
+      })
+
+      
       form.reset();
   
       if (!email || !password) {

@@ -1,14 +1,32 @@
 import React, { useState } from "react";
+import { useContext } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../provider/AuthProvider";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const {signIn, signInWithGoogle} = useContext(AuthContext)
 
   const handleShowPassword = () => {
     setShowPassword(!showPassword);
   };
+
+  const handleGoogle = () => {
+    signInWithGoogle()
+    .then(result => {
+      const loggedUser = result.user;
+      console.log(loggedUser);
+    })
+    .catch(error => {
+      const errorMessage = error.message;
+      console.error(errorMessage)
+    })
+  }
+  const handleGithub = () => {
+
+  }
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -18,7 +36,16 @@ const Login = () => {
     const password = form.password.value;
     console.log(email, password);
 
-    form.reset();
+    signIn(email, password)
+    .then((result) => {
+      const loggedUser = result.user;
+      console.log(loggedUser);
+    })
+    .catch((error) => {
+      const errorMessage = error.message;
+      console.error(errorMessage);
+    })
+
 
     if (!email || !password) {
       setErrorMessage("Please enter an email and password");
@@ -103,12 +130,12 @@ const Login = () => {
             </p>
           </div>
           <div className="flex flex-col gap-3 mt-6">
-            <button className="btn">
-              <FaGoogle className="h-5 me-3 w-5 text-yellow-600"></FaGoogle> Sign In with
+            <button className="btn" onClick={handleGoogle}>
+              <FaGoogle className="h-5 me-3 w-5 text-yellow-600"></FaGoogle> Login In with
               google
             </button>
-            <button className="btn">
-              <FaGithub className="h-5 me-3 w-5 text-yellow-600"></FaGithub> Sign In with
+            <button className="btn" onClick={handleGithub}>
+              <FaGithub className="h-5 me-3 w-5 text-yellow-600"></FaGithub> Login In with
               github
             </button>
           </div>
