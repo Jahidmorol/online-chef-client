@@ -7,7 +7,10 @@
   }
   
   .btn{
-    @apply inline-flex items-center h-12 px-6 mb-3 font-medium text-white transition duration-200 rounded shadow-md  md:mb-0 bg-blue-400 hover:bg-blue-700
+    @apply inline-flex items-center h-12 px-6 mb-3 font-medium text-black border-yellow-600 transition duration-200 rounded shadow-md  md:mb-0 bg-white hover:bg-white hover:shadow-lg hover:border-yellow-400
+  }
+  .btn2{
+    @apply inline-flex items-center h-12 ps-10 mb-3 font-medium text-black transition duration-200 rounded shadow-md  md:mb-0 border border-yellow-600 hover:bg-yellow-600
   }
   
   .badge{

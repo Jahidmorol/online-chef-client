@@ -1,19 +1,10 @@
 import React, { useState } from "react";
+import { FaGithub, FaGoogle } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const Login = () => {
-  // const [email, setEmail] = useState('');
-  // const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-
-  // const handleEmailChange = (event) => {
-  //   setEmail(event.target.value);
-  // };
-
-  // const handlePasswordChange = (event) => {
-  //   setPassword(event.target.value);
-  // };
 
   const handleShowPassword = () => {
     setShowPassword(!showPassword);
@@ -41,10 +32,12 @@ const Login = () => {
   return (
     <div className="flex justify-center items-center h-screen">
       <div className="max-w-md w-full mx-4">
-        <h1 className="text-5xl text-center text-yellow-600 font-bold mb-8">Login</h1>
+        <h1 className="text-5xl text-center text-yellow-600 font-bold mb-8">
+          Login
+        </h1>
         <form
           onSubmit={handleSubmit}
-          className="bg-gray-300 shadow-md rounded-md px-8 pt-8 pb-10 mb-4"
+          className="border-2 border-yellow-600 shadow-md rounded-md px-8 pt-8 pb-10 mb-4"
         >
           <div className="my-7">
             <label
@@ -54,7 +47,7 @@ const Login = () => {
               Email Address
             </label>
             <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              className="shadow appearance-none border border-yellow-600 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               name="email"
               type="email"
               placeholder="Email Address"
@@ -72,7 +65,7 @@ const Login = () => {
             </label>
             <div className="flex">
               <input
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                className="shadow appearance-none border border-yellow-600 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 name="password"
                 type={showPassword ? "text" : "password"}
                 placeholder="Password"
@@ -82,7 +75,7 @@ const Login = () => {
               />
               <button
                 type="button"
-                className="ml-2 bg-gray-200 hover:bg-gray-300 focus:bg-gray-300 text-gray-700 font-semibold px-2 py-1 rounded"
+                className="ml-2 bg-white border border-yellow-600 hover:bg-gray-300 focus:bg-gray-300 text-gray-700 font-semibold px-2 py-1 rounded"
                 onClick={handleShowPassword}
               >
                 {showPassword ? "Hide" : "Show"}
@@ -94,20 +87,30 @@ const Login = () => {
           )}
           <div className="flex items-center justify-between">
             <button
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mt-5 rounded focus:outline-none focus:shadow-outline"
+              className="bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-2 px-4 mt-5 rounded focus:outline-none focus:shadow-outline"
               type="submit"
             >
               Sign In
             </button>
             <p className="mt-5">
-              If are you new{" "}
+              If are you new
               <Link
                 to="/register"
-                className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
+                className="ms-2 inline-block align-baseline font-bold text-sm text-yellow-600 hover:text-yellow-700"
               >
                 Go to Register
               </Link>
             </p>
+          </div>
+          <div className="flex flex-col gap-3 mt-6">
+            <button className="btn">
+              <FaGoogle className="h-5 me-3 w-5 text-yellow-600"></FaGoogle> Sign In with
+              google
+            </button>
+            <button className="btn">
+              <FaGithub className="h-5 me-3 w-5 text-yellow-600"></FaGithub> Sign In with
+              github
+            </button>
           </div>
         </form>
       </div>

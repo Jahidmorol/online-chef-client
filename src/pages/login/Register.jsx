@@ -35,7 +35,7 @@ const Register = () => {
           <h1 className="text-5xl text-center text-yellow-600 font-bold mb-8">Register</h1>
           <form
             onSubmit={handleSubmit}
-            className="bg- shadow-md rounded-md px-8 pt-8 pb-10 mb-4"
+            className="border-2 border-yellow-600  shadow-md rounded-md px-8 pt-8 pb-10 mb-4"
           >
             <div className="my-5">
               <label
@@ -45,7 +45,7 @@ const Register = () => {
                 Your Name
               </label>
               <input
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                className="shadow appearance-none border border-yellow-600 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 name="name"
                 type="text"
                 placeholder="Your Name"
@@ -60,7 +60,7 @@ const Register = () => {
                 Your Photo Url
               </label>
               <input
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                className="shadow appearance-none border border-yellow-600 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 name="picture"
                 type="text"
                 placeholder="Your Photo Url"
@@ -75,7 +75,7 @@ const Register = () => {
                 Email Address
               </label>
               <input
-                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                className="shadow appearance-none border border-yellow-600 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 name="email"
                 type="email"
                 placeholder="Email Address"
@@ -91,7 +91,7 @@ const Register = () => {
               </label>
               <div className="flex">
                 <input
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                  className="shadow appearance-none border border-yellow-600 rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                   name="password"
                   type={showPassword ? "text" : "password"}
                   placeholder="Password"
@@ -101,7 +101,7 @@ const Register = () => {
                 />
                 <button
                   type="button"
-                  className="ml-2 bg-gray-200 hover:bg-gray-300 focus:bg-gray-300 text-gray-700 font-semibold px-2 py-1 rounded"
+                  className="ml-2 bg-white border border-yellow-600 hover:bg-gray-300 focus:bg-gray-300 text-gray-700 font-semibold px-2 py-1 rounded"
                   onClick={handleShowPassword}
                 >
                   {showPassword ? "Hide" : "Show"}
@@ -113,7 +113,7 @@ const Register = () => {
             )}
             <div className="flex items-center justify-between">
               <button
-                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mt-5 rounded focus:outline-none focus:shadow-outline"
+                className="bg-yellow-600 hover:bg-yellow-700 text-white font-bold py-2 px-4 mt-5 rounded focus:outline-none focus:shadow-outline"
                 type="submit"
               >
                 Register
@@ -122,7 +122,7 @@ const Register = () => {
                 Allrady have an account ?
                 <Link
                   to="/login"
-                  className="ms-2 inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
+                  className="ms-2 inline-block align-baseline font-bold text-sm text-yellow-600 hover:text-yellow-700"
                 >
                   Go to Login
                 </Link>
