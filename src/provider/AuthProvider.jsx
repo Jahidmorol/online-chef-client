@@ -31,6 +31,11 @@ const AuthProvider = ({ children }) => {
   const singInWithGithub = () => {
     return signInWithPopup(auth, githubProbider);
   };
+  
+  const createUser = (email, password) => {
+    setLoading(true);
+    return createUserWithEmailAndPassword(auth, email, password);
+  };
 
   const updateUser = (name, photoUrl) => {
     setLoading(true);
@@ -40,10 +45,6 @@ const AuthProvider = ({ children }) => {
     });
   };
 
-  const createUser = (email, password) => {
-    setLoading(true);
-    return createUserWithEmailAndPassword(auth, email, password);
-  };
 
   const signIn = (email, password) => {
     setLoading(true);

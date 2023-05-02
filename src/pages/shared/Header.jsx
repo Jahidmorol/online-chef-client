@@ -50,12 +50,12 @@ const Header = () => {
                 className={({ isActive }) => (isActive ? "active" : "default")}
               >
                 {
-                  user ? <p className="font-semibold">{user.displayName}</p> : <p>Profile</p>
+                  user?.displayName ? <p className="font-semibold">{user.displayName}</p> : <p>Profile</p>
                 }
               </div>
               <div>
                 {
-                  user ? <img className="w-10 h-10 rounded-full" src={user.photoURL} /> : <FaUserCircle className="w-9 h-9"></FaUserCircle>
+                  user?.photoURL ? <img className="w-10 h-10 rounded-full" src={user.photoURL} /> : <FaUserCircle className="w-9 h-9"></FaUserCircle>
                 }
               </div>
               {user ? (
