@@ -22,6 +22,7 @@ const githubProbider = new GithubAuthProvider();
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [reload, setReload] = useState(null)
 
   const signInWithGoogle = () => {
     setLoading(true);
@@ -37,15 +38,25 @@ const AuthProvider = ({ children }) => {
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
-  const updateUser = (name, photoUrl) => {
-    setLoading(true);
-    return updateProfile(user, {
+  // const updateUser = (name, photoUrl) => {
+  //   setLoading(true);
+  //   const updateUsers =  {
+  //     displayName: name,
+  //     photoURL: photoUrl,
+  //   }
+  //   return updateProfile(auth.currentUser, updateUsers)
+  //   .then(() => setUser((preUser) => ({...preUser, ...updateUsers})))
+  // };
+
+
+  const updateUser = (upUser,name, photoUrl) => {
+    return updateProfile(upUser, {
       displayName: name,
-      photoURL: photoUrl,
-    });
-  };
-
-
+      photoURL: photoUrl
+    })
+  }
+  
+  
   const signIn = (email, password) => {
     setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
@@ -66,7 +77,7 @@ const AuthProvider = ({ children }) => {
     return () => {
       unsubsCribe();
     };
-  }, []);
+  }, [reload]);
 
   const authInfo = {
     user,
@@ -77,6 +88,7 @@ const AuthProvider = ({ children }) => {
     signInWithGoogle,
     updateUser,
     singInWithGithub,
+    setReload,
   };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

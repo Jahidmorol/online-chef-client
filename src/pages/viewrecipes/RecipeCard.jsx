@@ -1,22 +1,23 @@
 import React, { useState } from "react";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const RecipeCard = ({ recipe }) => {
-  const [favoriteRecipes, setFavoriteRecipes] = useState([]);
+  // const [favoriteRecipes, setFavoriteRecipes] = useState([]);
+  const [isFavorite, setIsFavorite] = useState(false);
 
-//   const handleFavoritebutton = (favorite) => {
-//     if(!favorite){
-//         setFavoriteRecipes(true)
-//     }
-    
-//   }
-
-  const handleFavoriteClick = (recipeName) => {
-    if (favoriteRecipes.includes(recipeName)) {
-      setFavoriteRecipes(favoriteRecipes.filter((name) => name !== recipeName));
-    } else {
-      setFavoriteRecipes([...favoriteRecipes, recipeName]);
-    }
+  const handleClick = () => {
+    setIsFavorite(true);
+    toast.success("Recipe added to favorites!");
   };
+
+  // const handleFavoriteClick = (recipeName) => {
+  //   if (favoriteRecipes.includes(recipeName)) {
+  //     setFavoriteRecipes(favoriteRecipes.filter((name) => name !== recipeName));
+  //   } else {
+  //     setFavoriteRecipes([...favoriteRecipes, recipeName]);
+  //   }
+  // };
 
   return (
     <div className="p-4 bg-white shadow-lg rounded-lg mb-4">
@@ -36,13 +37,15 @@ const RecipeCard = ({ recipe }) => {
       <div className="flex items-center mt-4">
         <span className="text-gray-600">{recipe.rating} Rating</span>
         <button
-          className={`ms-5 text-white bg-gray-900 border-0 py-2 px-4  rounded mr-2 mb-2 ${
-            favoriteRecipes.includes(recipe.name) && "btn-disabled"
+          onClick={handleClick}
+          disabled={isFavorite}
+          className={`px-4 py-2 bg-blue-500 text-white rounded-lg ${
+            isFavorite ? "opacity-50 cursor-not-allowed" : ""
           }`}
-          onClick={() => handleFavoriteClick(recipe.name)}
         >
-          Favorite
+          {isFavorite ? "Favorite" : "Add to favorites"}
         </button>
+        <ToastContainer />
         {/* <button className="ml-4 bg-blue-500 text-white rounded px-4 py-2" onClick={() => handleFavoritebutton(recipe.favorite)}>
           Favorite
         </button> */}
