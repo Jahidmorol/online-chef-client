@@ -37,21 +37,27 @@ const Register = () => {
             setReload(new Date().getTime());
           })
           .catch((error) => console.error(error));
+        form.reset();
       })
       .catch((error) => {
         const errorMessage = error.message;
         console.error(errorMessage);
       });
 
-    form.reset();
-
     if (!email || !password) {
       setErrorMessage("Please enter an email and password");
-    } else {
-      setErrorMessage("");
-      console.log("Email:", email);
-      console.log("Password:", password);
+      return;
+    } else if (password.length < 6) {
+      setErrorMessage("at least more then 6 numbers ");
+      return;
     }
+    //  else if (!/(?=.[A-Z].[A-Z])/.test(password)) {
+    //   setErrorMessage("at least two capital letters");
+    //   return;
+    // } else if (!/(?=.[0-9].[0-9])/.test(password)) {
+    //   setErrorMessage("at least two numeric digits");
+    //   return;
+    // }
   };
 
   return (
@@ -106,7 +112,7 @@ const Register = () => {
               name="email"
               type="email"
               placeholder="Email Address"
-              required
+              // required
             />
           </div>
           <div className="my-5">
@@ -122,7 +128,7 @@ const Register = () => {
                 name="password"
                 type={showPassword ? "text" : "password"}
                 placeholder="Password"
-                required
+                // required
               />
               <button
                 type="button"
@@ -134,7 +140,7 @@ const Register = () => {
             </div>
           </div>
           {errorMessage && (
-            <p className="text-red-500 text-xs mb-4">{errorMessage}</p>
+            <p className="text-red-500 text-md mb-4">{errorMessage}</p>
           )}
           <div className="flex items-center justify-between">
             <button

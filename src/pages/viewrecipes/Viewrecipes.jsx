@@ -15,7 +15,7 @@ const Viewrecipes = () => {
     viewrecipes;
 
   return (
-    <div className="bg-gray-100 py-8">
+    <div className="bg-gray-100 py-8  items-center">
       <div className="container mx-auto">
         <div className="flex justify-center">
           <div className="w-1/2">
@@ -35,9 +35,9 @@ const Viewrecipes = () => {
           </div>
         </div>
       </div>
-      <div>
+      <div className="my-container grid grid-cols-3">
         {recipes.map((recipe) => (
-          <RecipeCard recipe={recipe}></RecipeCard>
+          <RecipeCard key={id} recipe={recipe}></RecipeCard>
         ))}
       </div>
     </div>

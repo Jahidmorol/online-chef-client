@@ -6,24 +6,24 @@ import { AuthContext } from "../../provider/AuthProvider";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const { user,logOut } = useContext(AuthContext);
-  console.log(user);
+  const { user, logOut } = useContext(AuthContext);
 
   const handleLogout = () => {
     logOut()
-    .then()
-    .catch(e => console.error(e))
-  }
+      .then()
+      .catch((e) => console.error(e));
+  };
 
   return (
-    <div className="bg-gray-100">
-      <div className=" px-4  py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+    <div className="bg-neutral">
+      <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full md:px-2 lg:max-w-screen-xl lg:px-1">
         <div className="relative flex items-center justify-between">
           {/* Logo Section */}
           <Link to="/" className="">
-            <span className="ml-2 mb-3 text-xl sm:text-2xl  font-bold tracking-wide uppercase text-gray-800">
-              Mast <span className=" text-yellow-600">Mosala</span>
+            <span className="mb-3 text-xl sm:text-2xl  font-bold tracking-wide uppercase text-gray-800">
+              Chef <span className=" text-orange-600">Online</span>
             </span>
+            {/* <img className=" " src={logo} alt="" /> */}
           </Link>
 
           {/* Nav Items Section */}
@@ -46,20 +46,23 @@ const Header = () => {
               </NavLink>
             </li>
             <li className="flex items-center gap-3">
-              <div
-                className={({ isActive }) => (isActive ? "active" : "default")}
-              >
-                {
-                  user ? <p className="font-semibold">{user.displayName}</p> : <p>Profile</p>
-                }
-              </div>
               <div>
-                {
-                  user ? <img className="w-10 h-10 rounded-full" src={user.photoURL} /> : <FaUserCircle className="w-9 h-9"></FaUserCircle>
-                }
+                {user && (
+                  <div
+                    className="tooltip tooltip-bottom tooltip-warning"
+                    data-tip={user.displayName}
+                  >
+                    <img
+                      className="w-10 h-10 rounded-full"
+                      src={user.photoURL}
+                    />
+                  </div>
+                )}
               </div>
               {user ? (
-                <button onClick={handleLogout} className="btn">Log Out</button>
+                <button onClick={handleLogout} className="btn">
+                  Log Out
+                </button>
               ) : (
                 <Link to="/login">
                   <button className="btn">Login</button>
@@ -117,13 +120,29 @@ const Header = () => {
                           Blog
                         </Link>
                       </li>
-                      <li>
-                        <Link
-                          to="/login"
-                          className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-blue-400"
-                        >
-                          Profile
-                        </Link>
+                      <li className="flex items-center gap-3">
+                        <div>
+                          {user && (
+                            <div
+                              className="tooltip tooltip-bottom tooltip-warning"
+                              data-tip={user.displayName}
+                            >
+                              <img
+                                className="w-10 h-10 rounded-full"
+                                src={user.photoURL}
+                              />
+                            </div>
+                          )}
+                        </div>
+                        {user ? (
+                          <button onClick={handleLogout} className="btn">
+                            Log Out
+                          </button>
+                        ) : (
+                          <Link to="/login">
+                            <button className="btn">Login</button>
+                          </Link>
+                        )}
                       </li>
                     </ul>
                   </nav>

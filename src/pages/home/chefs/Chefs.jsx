@@ -11,8 +11,8 @@ const Chefs = ({ chefs }) => {
 
   return (
     <div className="my-container">
-      <h2>its a chefs component</h2>
-      <div className="grid gap-1 mb-8 lg:grid-cols-3 sm:grid-cols-2">
+      <h2 className="text-center font-bold text-5xl mb-10">Our Awesome Chef's</h2>
+      <div className="grid gap-1 mb-8 lg:grid-cols-3 ">
         {chefs.map((chef) => (
           <Chef key={chef.id} chef={chef}></Chef>
         ))}

@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import { useContext } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
-import { Link, useNavigation } from "react-router-dom";
+import {
+  Link,
+  useLocation,
+  useNavigate,
+  useNavigation,
+} from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 import Loading from "../shared/Loading";
 
@@ -16,6 +21,11 @@ const Login = () => {
   const { signIn, signInWithGoogle, singInWithGithub } =
     useContext(AuthContext);
 
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+  console.log(from);
+  console.log(location);
   const handleShowPassword = () => {
     setShowPassword(!showPassword);
   };
@@ -24,7 +34,8 @@ const Login = () => {
     signInWithGoogle()
       .then((result) => {
         const loggedUser = result.user;
-        console.log(loggedUser);
+        // console.log(loggedUser);
+        navigate(from);
       })
       .catch((error) => {
         const errorMessage = error.message;
@@ -36,7 +47,8 @@ const Login = () => {
     singInWithGithub()
       .then((result) => {
         const loggedUser = result.user;
-        console.log(loggedUser);
+        // console.log(loggedUser);
+        navigate(from);
       })
       .catch((error) => {
         const errorMessage = error.message;
@@ -55,7 +67,8 @@ const Login = () => {
     signIn(email, password)
       .then((result) => {
         const loggedUser = result.user;
-        console.log(loggedUser);
+        // console.log(loggedUser);
+        navigate(from);
       })
       .catch((error) => {
         const errorMessage = error.message;
@@ -93,8 +106,6 @@ const Login = () => {
               name="email"
               type="email"
               placeholder="Email Address"
-              // value={email}
-              // onChange={handleEmailChange}
               required
             />
           </div>
