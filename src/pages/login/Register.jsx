@@ -1,13 +1,18 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigation } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
+import Loading from "../shared/Loading";
 
 const Register = () => {
+  const navigation = useNavigation();
+  if (navigation.state === "loading") {
+    return <Loading></Loading>;
+  }
+
   const [showPassword, setShowPassword] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-  // const [aUser, setAuser] = useState(null);
   const { createUser, updateUser } = useContext(AuthContext);
-  const { user, setReload } = useContext(AuthContext);
+  const { setReload } = useContext(AuthContext);
 
   const handleShowPassword = () => {
     setShowPassword(!showPassword);
@@ -29,7 +34,7 @@ const Register = () => {
         // console.log(createUser);
         updateUser(createUser, name, picture)
           .then((result) => {
-            setReload(new Date().getTime())
+            setReload(new Date().getTime());
           })
           .catch((error) => console.error(error));
       })
@@ -117,8 +122,6 @@ const Register = () => {
                 name="password"
                 type={showPassword ? "text" : "password"}
                 placeholder="Password"
-                //   value={password}
-                //   onChange={handlePasswordChange}
                 required
               />
               <button

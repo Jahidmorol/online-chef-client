@@ -1,9 +1,15 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigation } from 'react-router-dom';
 import shef from '../../../assets/shef.png'
+import Loading from '../../shared/Loading';
 import Chefs from '../chefs/Chefs';
 
 const Home = () => {
+    const navigation = useNavigation();
+  if (navigation.state === "loading") {
+    return <Loading></Loading>;
+  }
+
     const chefs = useLoaderData();
     return (
         <div>

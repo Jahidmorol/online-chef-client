@@ -1,13 +1,20 @@
 import React, { useState } from "react";
 import { useContext } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigation } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
+import Loading from "../shared/Loading";
 
 const Login = () => {
+  const navigation = useNavigation();
+  if (navigation.state === "loading") {
+    return <Loading></Loading>;
+  }
+
   const [showPassword, setShowPassword] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
-  const {signIn, signInWithGoogle, singInWithGithub} = useContext(AuthContext)
+  const { signIn, signInWithGoogle, singInWithGithub } =
+    useContext(AuthContext);
 
   const handleShowPassword = () => {
     setShowPassword(!showPassword);
@@ -15,27 +22,27 @@ const Login = () => {
 
   const handleGoogle = () => {
     signInWithGoogle()
-    .then(result => {
-      const loggedUser = result.user;
-      console.log(loggedUser);
-    })
-    .catch(error => {
-      const errorMessage = error.message;
-      console.error(errorMessage)
-    })
-  }
-  
+      .then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        console.error(errorMessage);
+      });
+  };
+
   const handleGithub = () => {
     singInWithGithub()
-    .then(result => {
-      const loggedUser = result.user;
-      console.log(loggedUser);
-    })
-    .catch(error => {
-      const errorMessage = error.message;
-      console.error(errorMessage)
-    }) 
-  }
+      .then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        console.error(errorMessage);
+      });
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -46,15 +53,14 @@ const Login = () => {
     console.log(email, password);
 
     signIn(email, password)
-    .then((result) => {
-      const loggedUser = result.user;
-      console.log(loggedUser);
-    })
-    .catch((error) => {
-      const errorMessage = error.message;
-      console.error(errorMessage);
-    })
-
+      .then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+      })
+      .catch((error) => {
+        const errorMessage = error.message;
+        console.error(errorMessage);
+      });
 
     if (!email || !password) {
       setErrorMessage("Please enter an email and password");
@@ -140,12 +146,12 @@ const Login = () => {
           </div>
           <div className="flex flex-col gap-3 mt-6">
             <button className="btn" onClick={handleGoogle}>
-              <FaGoogle className="h-5 me-3 w-5 text-yellow-600"></FaGoogle> Login In with
-              google
+              <FaGoogle className="h-5 me-3 w-5 text-yellow-600"></FaGoogle>{" "}
+              Login In with google
             </button>
             <button className="btn" onClick={handleGithub}>
-              <FaGithub className="h-5 me-3 w-5 text-yellow-600"></FaGithub> Login In with
-              github
+              <FaGithub className="h-5 me-3 w-5 text-yellow-600"></FaGithub>{" "}
+              Login In with github
             </button>
           </div>
         </form>

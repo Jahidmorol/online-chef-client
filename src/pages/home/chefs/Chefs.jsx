@@ -1,8 +1,14 @@
 import React from "react";
+import { useNavigation } from "react-router-dom";
+import Loading from "../../shared/Loading";
 import Chef from "./Chef";
 
 const Chefs = ({ chefs }) => {
-  console.log(chefs);
+  const navigation = useNavigation();
+  if (navigation.state === "loading") {
+    return <Loading></Loading>;
+  }
+
   return (
     <div className="my-container">
       <h2>its a chefs component</h2>

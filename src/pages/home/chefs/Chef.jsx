@@ -1,12 +1,21 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigation } from "react-router-dom";
+import Loading from "../../shared/Loading";
 
 const Chef = ({ chef }) => {
-  const {id, name, photo, experience, numRecipes, likes } = chef;
+  const navigation = useNavigation();
+  if (navigation.state === "loading") {
+    return <Loading></Loading>;
+  }
+  const { id, name, photo, experience, numRecipes, likes } = chef;
   return (
     <div className="card w-96 bg-inherit shadow-xl my-5 border-2 border-yellow-600">
       <figure className="px-10 pt-10">
-        <img src={photo} alt="photo" className="w-44 h-44 rounded-full border border-yellow-600" />
+        <img
+          src={photo}
+          alt="photo"
+          className="w-44 h-44 rounded-full border border-yellow-600"
+        />
       </figure>
       <div className="card-body items-center text-center">
         <h2 className="card-title">Chef Name : {name}</h2>

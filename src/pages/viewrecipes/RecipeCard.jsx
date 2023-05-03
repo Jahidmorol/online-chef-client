@@ -1,9 +1,15 @@
 import React, { useState } from "react";
-import { ToastContainer } from "react-toastify";
+import { useNavigation } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Loading from "../shared/Loading";
 
 const RecipeCard = ({ recipe }) => {
-  // const [favoriteRecipes, setFavoriteRecipes] = useState([]);
+  const navigation = useNavigation();
+  if (navigation.state === "loading") {
+    return <Loading></Loading>;
+  }
+
   const [isFavorite, setIsFavorite] = useState(false);
 
   const handleClick = () => {
@@ -11,13 +17,6 @@ const RecipeCard = ({ recipe }) => {
     toast.success("Recipe added to favorites!");
   };
 
-  // const handleFavoriteClick = (recipeName) => {
-  //   if (favoriteRecipes.includes(recipeName)) {
-  //     setFavoriteRecipes(favoriteRecipes.filter((name) => name !== recipeName));
-  //   } else {
-  //     setFavoriteRecipes([...favoriteRecipes, recipeName]);
-  //   }
-  // };
 
   return (
     <div className="p-4 bg-white shadow-lg rounded-lg mb-4">
