@@ -15,20 +15,19 @@ const Viewrecipes = () => {
     viewrecipes;
 
   return (
-    <div className="bg-gray-100 py-8  items-center">
+    <div className="bg-gray-100 py-8">
       <div className="container mx-auto">
         <div className="flex justify-center">
           <div className="w-1/2">
-            <img src={photo} className="w-full rounded-lg" />
-            <h1 className="text-4xl font-bold mt-4">{name}</h1>
+            <img src={photo} className="w-3/5 mx-auto" />
+            <h1 className="text-4xl font-bold text-yellow-600 mt-4">{name}</h1>
             <p className="text-gray-600 mt-2">{bio}</p>
             <div className="flex items-center justify-between mt-4">
-              <div>
-                <span className="text-gray-600">{likes} Likes</span>
-                <span className="mx-2">•</span>
-                <span className="text-gray-600">{numRecipes} Recipes</span>
+              <div className="flex gap-3">
+                <span className="badge badge-warning">{likes} Likes</span>
+                <span className="badge badge-warning">{numRecipes} Recipes</span>
               </div>
-              <span className="text-gray-600">
+              <span className="badge badge-warning">
                 {experience} Years of Experience
               </span>
             </div>
