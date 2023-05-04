@@ -1,19 +1,20 @@
 import React from "react";
-import logo from "../../assets/Vector.png"
+import logo from "../../assets/Vector.png";
+import ContactUs from "../home/contactUs/ContactUs";
 
 const Footer = () => {
   return (
-    <footer className="footer p-10 bg-neutral text-neutral-content">
+    <footer className="footer p-10 bg-neutral text-neutral-content grid grid-cols-1 md:grid-cols-3">
       <div>
         <img src={logo} className="h-50 w-50" alt="" />
-        <p>
+        <p className="text-yellow-300">
           Food Onlie Industries Ltd.
           <br />
           Providing reliable tech since 1992
         </p>
       </div>
       <div>
-        <span className="footer-title">Our Social Media</span>
+        <span className="font-semibold text-xl ">Our Social Media</span>
         <div className="grid grid-flow-col gap-4">
           <a>
             <svg
@@ -49,6 +50,22 @@ const Footer = () => {
             </svg>
           </a>
         </div>
+        <div className="flex flex-col mt-4 lg:mt-10 ">
+          <h1 className="font-semibold text-xl ">Information</h1>
+          <a className="link link-hover pt-3 text-yellow-300 text-left ">About us</a>
+          <a className="link link-hover pt-3 text-yellow-300 text-left ">
+            Delivery information
+          </a>
+          <a className="link link-hover pt-3 text-yellow-300 text-left ">
+            Privacy Policy
+          </a>
+          <a className="link link-hover pt-3 text-yellow-300 text-left ">
+            Tetms & Conditons
+          </a>
+        </div>
+      </div>
+      <div>
+        <ContactUs></ContactUs>
       </div>
     </footer>
   );

@@ -3,10 +3,10 @@ import React from "react";
 const ContactUs = () => {
   return (
     <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
-      <h2 className="text-4xl text-center md:text-5xl font-bold mb-8">Contact Us</h2>
+      <h2 className="text-4xl md:text-5xl font-bold mb-8">Contact Us</h2>
       <form className="grid grid-cols-2 gap-6">
         <div>
-          <label htmlFor="name" className="block text-gray-700 font-bold mb-2">
+          <label htmlFor="name" className="block text-yellow-300 font-bold mb-2">
             Name
           </label>
           <input
@@ -18,7 +18,7 @@ const ContactUs = () => {
           />
         </div>
         <div>
-          <label htmlFor="email" className="block text-gray-700 font-bold mb-2">
+          <label htmlFor="email" className="block text-yellow-300 font-bold mb-2">
             Email
           </label>
           <input
@@ -32,7 +32,7 @@ const ContactUs = () => {
         <div className="col-span-2">
           <label
             htmlFor="message"
-            className="block text-gray-700 font-bold mb-2"
+            className="block text-yellow-300 font-bold mb-2"
           >
             Message
           </label>
@@ -47,7 +47,7 @@ const ContactUs = () => {
         <div className="col-span-2">
           <button
             type="submit"
-            className="btn text-gray-700"
+            className="btn text-yellow-300"
           >
             Submit
           </button>

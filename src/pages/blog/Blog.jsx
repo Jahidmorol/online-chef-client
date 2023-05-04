@@ -10,8 +10,7 @@ const Blog = () => {
   
     return (
       <div className="container mx-auto">
-
-      <div className="mt-16">
+      <div className="md:mt-16 mt-8">
         <h2 className="md:text-4xl text-3xl ms-2 md:ms-0 text-yellow-600 font-bold mb-4">1. DIFFERENCES BETWEEN UNCONTROLLED AND CONTROLLED COMPONENTS</h2>
         <h4 className="ms-5 font-semibold text-gray-700">
         Uncontrolled components:
@@ -63,7 +62,7 @@ const Blog = () => {
       </div>
 
       {/* ---------Q4-------------- */}
-      <div className="my-8">
+      <div className="mt-8 md:mb-16 mb-8">
         <h2 className="md:text-4xl text-3xl ms-2 md:ms-0 text-yellow-600 font-bold mb-4">4. WHAT IS A CUSTOM HOOK, AND WHY WILL YOU CREATE A CUSTOM HOOK?</h2>
         <h4 className="ms-5 font-semibold text-gray-700">
         <span className='text-yellow-600 font-semibold'>#</span> A custom hook is a JavaScript function that allows you to reuse stateful logic between components in a reusable and composable way.
@@ -79,7 +78,6 @@ const Blog = () => {
         <p className="ms-5 text-gray-700"><span className='text-yellow-600 font-semibold'>3.</span> Modularity: Custom hooks can help in separating concerns and keeping your components focused on their specific tasks.</p>
         <p className="ms-5 text-gray-700"><span className='text-yellow-600 font-semibold'>3.</span> Stateful Logic: Custom hooks can manage and maintain state, perform side effects, or connect to external APIs.</p>
       </div>
-
     </div>
     );
 };
