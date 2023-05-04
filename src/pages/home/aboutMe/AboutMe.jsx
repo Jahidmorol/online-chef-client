@@ -1,4 +1,5 @@
 import React from "react";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import about from "../../../assets/waitress-standing-front-team-chefs_13339-16993.jpg";
 
 const AboutMe = () => {
@@ -9,11 +10,13 @@ const AboutMe = () => {
       </h2>
       <div className="grid md:flex items-center gap-4  ">
         <div className="mb-4 md:mb-0">
-          <img
-            src={about}
-            alt="Chef in kitchen"
-            className="w-full rounded-md"
-          />
+          <LazyLoadImage
+              alt={"img"}
+              height={""}
+              src={about}
+              width={""}
+              className="w-full rounded-md"
+            />
         </div>
         <div className="border-x-2 px-4 border-yellow-600 ">
             <p className="text-center font-bold text-2xl text-yellow-600 mb-3">Welcome to our chef website!</p>

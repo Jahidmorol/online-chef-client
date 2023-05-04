@@ -39,7 +39,8 @@ const Login = () => {
       })
       .catch((error) => {
         const errorMessage = error.message;
-        console.error(errorMessage);
+        // console.error(errorMessage);
+        setErrorMessage(errorMessage)
       });
   };
 
@@ -52,7 +53,8 @@ const Login = () => {
       })
       .catch((error) => {
         const errorMessage = error.message;
-        console.error(errorMessage);
+        // console.error(errorMessage);
+        setErrorMessage(errorMessage)
       });
   };
 
@@ -73,6 +75,7 @@ const Login = () => {
       .catch((error) => {
         const errorMessage = error.message;
         console.error(errorMessage);
+        setErrorMessage(errorMessage)
       });
 
     if (!email || !password) {
@@ -156,11 +159,11 @@ const Login = () => {
             </p>
           </div>
           <div className="flex flex-col gap-3 mt-6">
-            <button className="btn" onClick={handleGoogle}>
+            <button className="btn text-yellow-600 hover:border-2 hover:bg-inherit" onClick={handleGoogle}>
               <FaGoogle className="h-5 me-3 w-5 text-yellow-600"></FaGoogle>{" "}
               Login In with google
             </button>
-            <button className="btn" onClick={handleGithub}>
+            <button className="btn text-yellow-600  hover:bg-inherit" onClick={handleGithub}>
               <FaGithub className="h-5 me-3 w-5 text-yellow-600"></FaGithub>{" "}
               Login In with github
             </button>

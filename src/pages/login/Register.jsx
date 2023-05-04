@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Link, useNavigation } from "react-router-dom";
+import { Link, useNavigate, useNavigation } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
 import Loading from "../shared/Loading";
 
@@ -13,6 +13,7 @@ const Register = () => {
   const [errorMessage, setErrorMessage] = useState("");
   const { createUser, updateUser } = useContext(AuthContext);
   const { setReload } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleShowPassword = () => {
     setShowPassword(!showPassword);

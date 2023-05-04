@@ -1,4 +1,5 @@
 import React from "react";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import { useLoaderData, useNavigation } from "react-router-dom";
 import Loading from "../shared/Loading";
 import RecipeCard from "./RecipeCard";
@@ -19,7 +20,13 @@ const Viewrecipes = () => {
       <div className="container mx-auto">
         <div className="flex justify-center">
           <div className="w-1/2">
-            <img src={photo} className="w-3/5 mx-auto" />
+            <LazyLoadImage
+              alt={"img"}
+              height={""}
+              src={photo}
+              width={""}
+              className="w-3/5 mx-auto"
+            />
             <h1 className="text-4xl font-bold text-yellow-600 mt-4">{name}</h1>
             <p className="text-gray-600 mt-2">{bio}</p>
             <div className="flex items-center justify-between mt-4">

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FaRegStar, FaStar } from "react-icons/fa";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import Rating from "react-rating";
 import { useNavigation } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
@@ -21,14 +22,18 @@ const RecipeCard = ({ recipe }) => {
     });
   };
 
+  console.log(recipe.img);
+
   return (
     <div className="card card-compact w-96 bg-base-100 shadow-xl">
       <figure>
-        <img
-          src="https://img.freepik.com/free-photo/double-hamburger-isolated-white-background-fresh-burger-fast-food-with-beef-cream-cheese_90220-1192.jpg?w=740&t=st=1683136368~exp=1683136968~hmac=3fffea040695269397998f7ddb55dcc78cd4d07bca7e670b0eb0982e6b255fd9"
-          className="h-52 w-full"
-          alt=""
-        />
+        <LazyLoadImage
+              alt={"img"}
+              height={""}
+              src={recipe?.img}
+              width={""}
+              className="h-52 w-full"
+            />
       </figure>
       <div className="card-body">
         <h2 className="card-title text-yellow-600">{recipe.name}</h2>
