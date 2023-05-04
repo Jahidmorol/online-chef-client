@@ -6,7 +6,7 @@ const ContactUs = () => {
       <h2 className="text-4xl md:text-5xl font-bold mb-8">Contact Us</h2>
       <form className="grid grid-cols-2 gap-6">
         <div>
-          <label htmlFor="name" className="block text-yellow-300 font-bold mb-2">
+          <label htmlFor="name" className="block text-yellow-500 font-bold mb-2">
             Name
           </label>
           <input
@@ -18,7 +18,7 @@ const ContactUs = () => {
           />
         </div>
         <div>
-          <label htmlFor="email" className="block text-yellow-300 font-bold mb-2">
+          <label htmlFor="email" className="block text-yellow-500 font-bold mb-2">
             Email
           </label>
           <input
@@ -32,7 +32,7 @@ const ContactUs = () => {
         <div className="col-span-2">
           <label
             htmlFor="message"
-            className="block text-yellow-300 font-bold mb-2"
+            className="block text-yellow-500 font-bold mb-2"
           >
             Message
           </label>
@@ -47,7 +47,7 @@ const ContactUs = () => {
         <div className="col-span-2">
           <button
             type="submit"
-            className="btn text-yellow-300"
+            className="btn text-yellow-500"
           >
             Submit
           </button>

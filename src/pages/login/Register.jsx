@@ -39,6 +39,7 @@ const Register = () => {
           })
           .catch((error) => console.error(error));
         form.reset();
+        navigate('/')
       })
       .catch((error) => {
         const errorMessage = error.message;

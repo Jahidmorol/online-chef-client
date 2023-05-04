@@ -7,7 +7,7 @@ const Footer = () => {
     <footer className="footer p-10 bg-neutral text-neutral-content grid grid-cols-1 md:grid-cols-3">
       <div>
         <img src={logo} className="h-50 w-50" alt="" />
-        <p className="text-yellow-300">
+        <p className="text-yellow-500">
           Food Onlie Industries Ltd.
           <br />
           Providing reliable tech since 1992
@@ -52,14 +52,14 @@ const Footer = () => {
         </div>
         <div className="flex flex-col mt-4 lg:mt-10 ">
           <h1 className="font-semibold text-xl ">Information</h1>
-          <a className="link link-hover pt-3 text-yellow-300 text-left ">About us</a>
-          <a className="link link-hover pt-3 text-yellow-300 text-left ">
+          <a className="link link-hover pt-3 text-yellow-500 text-left ">About us</a>
+          <a className="link link-hover pt-3 text-yellow-500 text-left ">
             Delivery information
           </a>
-          <a className="link link-hover pt-3 text-yellow-300 text-left ">
+          <a className="link link-hover pt-3 text-yellow-500 text-left ">
             Privacy Policy
           </a>
-          <a className="link link-hover pt-3 text-yellow-300 text-left ">
+          <a className="link link-hover pt-3 text-yellow-500 text-left ">
             Tetms & Conditons
           </a>
         </div>
