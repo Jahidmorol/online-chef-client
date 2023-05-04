@@ -34,7 +34,7 @@ const Viewrecipes = () => {
           </div>
         </div>
       </div>
-      <div className="my-container grid grid-cols-3">
+      <div className="my-container grid md:grid-cols-3">
         {recipes.map((recipe) => (
           <RecipeCard key={id} recipe={recipe}></RecipeCard>
         ))}

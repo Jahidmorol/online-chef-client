@@ -3,6 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import { FaBars, FaRegTimesCircle, FaUserCircle } from "react-icons/fa";
 import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
+import logo from "../../assets/Vector.png"
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -19,11 +20,8 @@ const Header = () => {
       <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full md:px-2 lg:max-w-screen-xl lg:px-1">
         <div className="relative flex items-center justify-between">
           {/* Logo Section */}
-          <Link to="/" className="">
-            <span className="mb-3 text-xl sm:text-2xl  font-bold tracking-wide uppercase text-gray-800">
-              Chef <span className=" text-orange-600">Online</span>
-            </span>
-            {/* <img className=" " src={logo} alt="" /> */}
+          <Link to="/">
+            <img className="mb-1 w-36 md:w-44 " src={logo} alt="" />
           </Link>
 
           {/* Nav Items Section */}
@@ -79,18 +77,16 @@ const Header = () => {
               title="Open Menu"
               onClick={() => setIsMenuOpen(true)}
             >
-              <FaBars className="w-5 text-gray-600" />
+              <FaBars className="w-5 text-yellow-600 mt-2" />
             </button>
             {isMenuOpen && (
               <div className="absolute top-0 left-0 w-full z-10">
-                <div className="p-5 bg-white border rounded shadow-sm">
+                <div className="p-5 bg-neutral border rounded shadow-sm">
                   {/* Logo & Button section */}
                   <div className="flex items-center justify-between mb-4">
                     <div>
                       <Link to="/">
-                        <span className="mb-6 text-xl font-bold tracking-wide text-gray-800 uppercase">
-                          Mast Masala
-                        </span>
+                        <img className="mb-1 w-36 " src={logo} alt="" />
                       </Link>
                     </div>
                     {/* Dropdown menu close button */}
@@ -100,7 +96,7 @@ const Header = () => {
                         title="Close Menu"
                         onClick={() => setIsMenuOpen(false)}
                       >
-                        <FaRegTimesCircle className="w-5 text-gray-600" />
+                        <FaRegTimesCircle className="w-5 text-white" />
                       </button>
                     </div>
                   </div>
@@ -115,7 +111,7 @@ const Header = () => {
                       <li>
                         <Link
                           to="/blog"
-                          className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-blue-400"
+                          className="font-medium tracking-wide text-yellow-600 transition-colors duration-200 hover:text-yellow-300"
                         >
                           Blog
                         </Link>
@@ -135,12 +131,12 @@ const Header = () => {
                           )}
                         </div>
                         {user ? (
-                          <button onClick={handleLogout} className="btn">
+                          <button onClick={handleLogout} className="btn ">
                             Log Out
                           </button>
                         ) : (
                           <Link to="/login">
-                            <button className="btn">Login</button>
+                            <button className="btn ">Login</button>
                           </Link>
                         )}
                       </li>

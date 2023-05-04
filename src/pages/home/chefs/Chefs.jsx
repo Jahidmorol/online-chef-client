@@ -11,8 +11,8 @@ const Chefs = ({ chefs }) => {
 
   return (
     <div className="my-container">
-      <h2 className="text-center font-bold text-5xl mb-10">Our Awesome Chef's</h2>
-      <div className="grid gap-1 mb-8 lg:grid-cols-3 ">
+      <h2 className="text-center mb-10 text-4xl font-bold md:text-5xl">Our Awesome Chef's</h2>
+      <div className=" grid gap-5 lg:grid-cols-3">
         {chefs.map((chef) => (
           <Chef key={chef.id} chef={chef}></Chef>
         ))}
