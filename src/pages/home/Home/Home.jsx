@@ -27,9 +27,9 @@ const Home = () => {
         </div>
       </div>
       <Chefs chefs={chefs}> </Chefs>
+      <AboutMe></AboutMe>
       <BestRecipe></BestRecipe>
       <ContactUs></ContactUs>
-      <AboutMe></AboutMe>
     </div>
   );
 };

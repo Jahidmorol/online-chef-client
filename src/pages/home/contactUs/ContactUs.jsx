@@ -13,6 +13,7 @@ const ContactUs = () => {
             type="text"
             id="name"
             name="name"
+            placeholder="Your name"
             className="border border-yellow-600 p-2 w-full rounded-md"
           />
         </div>
@@ -24,6 +25,7 @@ const ContactUs = () => {
             type="email"
             id="email"
             name="email"
+            placeholder="Your Email"
             className="border border-yellow-600 p-2 w-full rounded-md"
           />
         </div>
@@ -37,6 +39,7 @@ const ContactUs = () => {
           <textarea
             id="message"
             name="message"
+            placeholder="Your Message"
             className="border border-yellow-600 p-2 w-full rounded-md"
             rows="5"
           ></textarea>
