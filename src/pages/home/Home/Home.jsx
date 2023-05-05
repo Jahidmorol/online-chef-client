@@ -26,7 +26,7 @@ const Home = () => {
               height={""}
               src={shef}
               width={""}
-              className="w-4/5 md:w-6/12"
+              className="w-5/6 md:w-6/12"
             />
             <div>
               <h2 className="text-4xl text-center  md:text-6xl md:leading-tight text-gray-800 md:text-right font-bold lg:mr-40">

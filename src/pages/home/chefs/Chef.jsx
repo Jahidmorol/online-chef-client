@@ -10,14 +10,14 @@ const Chef = ({ chef }) => {
   }
   const { id, name, photo, experience, numRecipes, likes } = chef;
   return (
-    <div className="card bg-inherit shadow-xl my-1 border border-yellow-600">
+    <div className="card bg-neutral-100 shadow-xl my-1 border border-yellow-600">
       <figure className="px-10 pt-10 ">
         <LazyLoadImage
               alt={"img"}
               height={""}
               src={photo}
               width={""}
-              className="w-44 h-44 bg-neutral rounded-full"
+              className="w-44 h-44 bg-neutral border border-yellow-600 rounded-full"
             />
       </figure>
       <div className="card-body items-center text-center ">

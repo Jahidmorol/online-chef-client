@@ -15,12 +15,14 @@
 ## Technologies Used
 
 - Our website was built using the following technologies:
-
+ 
 - HTML: The structure of our website is built using HTML.
 
 - CSS: The styling of our website is done using CSS.
 
 - JavaScript: We use JavaScript to add interactivity to our website, such as dropdown menus and form validation.
+
+- React js : Our website was built using React js. 
 
 - Tailwind : We use the Tailwind framework to make our website responsive and mobile-friendly.
 

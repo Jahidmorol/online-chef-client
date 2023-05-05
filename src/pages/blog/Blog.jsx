@@ -178,7 +178,7 @@ const Blog = () => {
         {({ toPdf }) => (
           <button
             onClick={toPdf}
-            className="py-2 flex items-center gap-2 rounded mb-9 px-10 border border-yellow-600 text-gray-700 hover:bg-yellow-600"
+            className="w-52 ms-5 md:mx-auto py-2 flex items-center gap-2 rounded mb-9 px-10 border border-yellow-600 text-gray-700 hover:border-yellow-300 "
           >
             <FaRegFilePdf className="text-rose-600" /> Generate Pdf
           </button>
