@@ -14,7 +14,7 @@ const ContactUs = () => {
             id="name"
             name="name"
             placeholder="Your name"
-            className="border border-yellow-600 p-2 w-full rounded-md"
+            className="border text-neutral border-yellow-600 p-2 w-full rounded-md"
           />
         </div>
         <div>
@@ -26,7 +26,7 @@ const ContactUs = () => {
             id="email"
             name="email"
             placeholder="Your Email"
-            className="border border-yellow-600 p-2 w-full rounded-md"
+            className="border text-neutral border-yellow-600 p-2 w-full rounded-md"
           />
         </div>
         <div className="col-span-2">
@@ -40,7 +40,7 @@ const ContactUs = () => {
             id="message"
             name="message"
             placeholder="Your Message"
-            className="border border-yellow-600 p-2 w-full rounded-md"
+            className="border text-neutral border-yellow-600 p-2 w-full rounded-md"
             rows="5"
           ></textarea>
         </div>
