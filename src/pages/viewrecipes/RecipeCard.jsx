@@ -17,7 +17,7 @@ const RecipeCard = ({ recipe }) => {
 
   const handleClick = () => {
     setIsFavorite(true);
-    toast.success("Success Notification !", {
+    toast.success("Recipe is your Favorite !", {
       position: toast.POSITION.TOP_CENTER,
     });
   };
