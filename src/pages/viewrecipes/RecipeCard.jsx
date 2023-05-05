@@ -24,8 +24,8 @@ const RecipeCard = ({ recipe }) => {
 
   console.log(recipe.img);
 
-  return (
-    <div className="card card-compact w-96 bg-base-100 shadow-xl">
+  return ( 
+      <div className="card card-compact bg-base-100 shadow-xl">
       <figure>
         <LazyLoadImage
               alt={"img"}
