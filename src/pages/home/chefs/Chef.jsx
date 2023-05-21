@@ -7,7 +7,7 @@ const Chef = ({ chef }) => {
   const navigation = useNavigation();
   if (navigation.state === "loading") {
     return <Loading></Loading>;
-  }
+  } 
   const { id, name, photo, experience, numRecipes, likes } = chef;
   return (
     <div className="card bg-neutral-100 shadow-xl my-1 border border-yellow-600">
